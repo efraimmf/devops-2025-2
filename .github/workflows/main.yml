@@ -57,4 +57,12 @@ jobs:
       - name: Checkout the source code
         uses: actions/checkout@v4
         
+      - name: Copy files to Digital Ocean
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USER}}
+          password: ${{secrets.PASSWORD}}
+          source: "./docker-compose.yml"
+          target: "~/"
     
